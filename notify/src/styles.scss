@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+$backgroundColor: #efefef;
+
+@mixin my-border($color) {
+  border: 1px solid $color;
+  background-color: white;
+}
+
+body {
+  background: $backgroundColor;
+  /*@include my-border(green);*/
+}
+
+.col-md-6 {
+	@include my-border(#e2e2e2);
+}
+
+h1 {
+	text-align: center;
+}
