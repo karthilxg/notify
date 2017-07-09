@@ -11,8 +11,16 @@ $backgroundColor: #efefef;
 }
 
 body {
-  background: $backgroundColor;
-  /*@include my-border(green);*/
+  background: $backgroundColor;  
+}
+
+.container-fluid {
+	padding-right: 0px;
+}
+
+.container {
+	z-index: -999;
+	position: relative;
 }
 
 .col-md-6, .col-md-3 {
@@ -22,3 +30,4 @@ body {
 h1 {
 	text-align: center;
 }
+

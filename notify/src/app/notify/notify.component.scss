@@ -1,0 +1,61 @@
+
+
+#notify {
+	float: right;
+	width: 375px;
+	background-color: white;	
+	z-index: 99;
+	/*position: fixed;*/
+}
+
+.date {
+	padding-left: 26px;
+	border-top: 10px solid #cccccc;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.date p {
+	font-family: font95196;
+	font-size: 28px;
+	color: #333; 
+	margin-top: 10px;
+}
+
+.itemCount {
+	padding-left: 26px;
+	padding-top: 45px;	
+	/*padding-bottom: 18px;*/
+}
+
+.itemCount p {
+	font-family: font95183;	
+	font-size: 80px;
+	color: #47acf5;
+	float: left;
+	margin-bottom: 0px;
+}
+
+.itemCount p:nth-child(2), p:nth-child(3) {
+	padding-left: 60px;
+}
+
+.itemTitle {
+	padding-left: 26px;
+}
+
+.itemTitle p {		
+	font-family: font95207;
+	font-size: 16px;
+	color: #999;
+	line-height: 23px;
+	float: left;
+}
+
+.itemTitle p:first-child {
+	width: 71.05px;	
+	white-space: initial;
+}
+
+.itemTitle p:nth-child(2), p:nth-child(3) {
+	padding-left: 60px;
+}

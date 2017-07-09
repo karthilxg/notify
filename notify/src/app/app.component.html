@@ -4,11 +4,11 @@
   </div> -->
   <div class="row">
     <nav class="navbar fixed-top navbar-light bg-faded" style="background: white;">
-      <a class="navbar-brand" (click)="notify=!notify" style="float: right; padding-top: 5px;"><i class="fa fa-bell-o fa-2x" aria-hidden="true"></i></a>
+      <a class="navbar-brand" (click)="notify=!notify" style="float: right; padding-top: 5px; padding-right: 15px;"><i class="fa fa-bell-o fa-2x" aria-hidden="true"></i></a>
     </nav>
   </div>
 
-  <div *ngIf="notify" class="row">    
+  <div *ngIf="notify" class="notify">    
     <app-notify></app-notify>
   </div>
 

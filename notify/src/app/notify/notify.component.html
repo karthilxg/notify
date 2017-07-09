@@ -1,3 +1,23 @@
-<div class="col-md-3">
-  notify works!
+<div id="notify" class="container-fluid">
+	
+  <div class="date row">	  	
+  	<p (updateTime)="updateMyTime()">{{date | date}}</p>
+  </div>
+  <div class="items">
+  	<div class="itemCount row">  		
+  		<p>56</p>
+  		<p *ngIf="reminders.length < 10">0{{reminders.length}}</p>
+  		<p *ngIf="reminders.length > 10">{{reminders.length}}</p>
+  		<p *ngIf="notifications.length < 10">0{{notifications.length}}</p>
+  		<p *ngIf="notifications.length > 10">{{notifications.length}}</p>
+  	</div>
+  	<div class="itemTitle row">
+  		<p>Assigned Tasks</p>
+  		<p>Reminders</p>
+  		<p>Notifications</p>
+  	</div>
+  </div>
+  <i class="fa fa-times" aria-hidden="true"></i>
 </div>
+
+
