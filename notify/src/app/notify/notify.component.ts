@@ -12,46 +12,46 @@ import { Item }							 from '../models/item';
 export class NotifyComponent implements OnInit {
 	
 	sampleData = [
-  			// {'id': '0',
-  			//  'type': 'assigned task', 
-  			//  'category': 'task', 
-  			//  'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
-  			//  'date': new Date(1499662645409),
-  			//  'tempTime': '',
-  			//  'viewItem': 'View Task'
-  			// },
-  			// {'id': '1',
-  			//  'type': 'assigned task', 
-  			//  'category': 'task', 
-  			//  'description': 'Buck Owens has assigned the Mobility - Submit task to you.',
-  			//  'date': new Date(1499575088557),
-  			//  'tempTime': '',
-  			//  'viewItem': 'View Task'
-  			// },
-  			// {'id': '2',
-  			//  'type': 'notification', 
-  			//  'category': 'pipeline', 
-  			//  'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
-  			//  'date': new Date(1500044423851),
-  			//  'tempTime': '',
-  			//  'viewItem': 'View Pipeline'
-  			// },
-  			// {'id': '4',
-  			//  'type': 'assigned task', 
-  			//  'category': 'task', 
-  			//  'description': 'testing counter.',
-  			//  'date': new Date(1499701680000),
-  			//  'tempTime': '',
-  			//  'viewItem': 'View Task'
-  			// },
-  			// {'id': '3',
-  			//  'type': 'reminder', 
-  			//  'category': 'someNote', 
-  			//  'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
-  			//  'date': new Date(1499701681111),
-  			//  'tempTime': '',
-  			//  'viewItem': 'View Note'
-  			// }  			
+  			{'id': '0',
+  			 'type': 'assigned task', 
+  			 'category': 'task', 
+  			 'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
+  			 'date': new Date(1499662645409),
+  			 'tempTime': '',
+  			 'viewItem': 'View Task'
+  			},
+  			{'id': '1',
+  			 'type': 'assigned task', 
+  			 'category': 'task', 
+  			 'description': 'Buck Owens has assigned the Mobility - Submit task to you.',
+  			 'date': new Date(1499575088557),
+  			 'tempTime': '',
+  			 'viewItem': 'View Task'
+  			},
+  			{'id': '2',
+  			 'type': 'notification', 
+  			 'category': 'pipeline', 
+  			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
+  			 'date': new Date(1500044423851),
+  			 'tempTime': '',
+  			 'viewItem': 'View Pipeline'
+  			},
+  			{'id': '4',
+  			 'type': 'assigned task', 
+  			 'category': 'task', 
+  			 'description': 'testing counter.',
+  			 'date': new Date(1499701680000),
+  			 'tempTime': '',
+  			 'viewItem': 'View Task'
+  			},
+  			{'id': '3',
+  			 'type': 'reminder', 
+  			 'category': 'someNote', 
+  			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
+  			 'date': new Date(1499701681111),
+  			 'tempTime': '',
+  			 'viewItem': 'View Note'
+  			}  			
   	]
   private months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 	private tempDate = '';
@@ -150,8 +150,8 @@ export class NotifyComponent implements OnInit {
     this.notifyService.getItems().then(items => {
     	this.items = items; 
     	// console.log(this.items)
-    	this.sampleData = this.items;
-    	console.log(this.sampleData)
+    	// this.sampleData = this.items;
+    	// console.log(this.sampleData)
     });    
   }
 
@@ -159,7 +159,7 @@ export class NotifyComponent implements OnInit {
 	d: any;
   ngOnInit() {
 
-  	this.getItems();
+  	// this.getItems();
   	
   			
 		var sortBy = (function () {
