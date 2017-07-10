@@ -6,18 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notify.component.scss']
 })
 export class NotifyComponent implements OnInit {
-
-	// sampleData: any [];
+	
 	sampleData = [
   			{'id': '0',
-  			 'type': 'notification', 
+  			 'type': 'assigned task', 
   			 'category': 'task', 
   			 'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
   			 'date': new Date(1499662645409),
   			 'tempTime': ''
   			},
   			{'id': '1',
-  			 'type': 'notification', 
+  			 'type': 'assigned task', 
   			 'category': 'task', 
   			 'description': 'Buck Owens has assigned the Mobility - Submit task to you.',
   			 'date': new Date(1499575088557),
@@ -28,6 +27,13 @@ export class NotifyComponent implements OnInit {
   			 'category': 'pipeline', 
   			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
   			 'date': new Date(1500044423851),
+  			 'tempTime': ''
+  			},
+  			{'id': '2',
+  			 'type': 'reminder', 
+  			 'category': '', 
+  			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
+  			 'date': new Date(1499701688097),
   			 'tempTime': ''
   			}
   	]
@@ -42,12 +48,18 @@ export class NotifyComponent implements OnInit {
 	private reminders: any[];
 	private assignedTasks: any[];
 
-  constructor() { }  
+  constructor() { 
+  	this.date =  new Date(); 
+    setInterval(() => {
+        this.date =  new Date();
+    }, 30); 
+    console.log(this.date.getTime())
+  }  
 
   updateDateUponLoad() {
 
   	for (let i=0; i<this.sampleData.length;i++) {
-  				        
+  		this.date =  new Date(); 
 	    if (this.date.getDate() == this.sampleData[i].date.getDate()) {
 	    	if (this.date.getHours() == this.sampleData[i].date.getHours()
 	    		|| this.date.getHours() - this.sampleData[i].date.getHours() == 1) {
@@ -73,8 +85,8 @@ export class NotifyComponent implements OnInit {
 	    	}
 	    }
 	    if (this.date.getDate() != this.sampleData[i].date.getDate()) {
-	    	console.log(this.sampleData[i].date.getMonth())
-	    	console.log(this.months[this.sampleData[i].date.getMonth()])
+	    	// console.log(this.sampleData[i].date.getMonth())
+	    	// console.log(this.months[this.sampleData[i].date.getMonth()])
 	    	this.sampleData[i].tempTime = this.months[this.sampleData[i].date.getMonth()]+' '+String(this.sampleData[i].date.getDay())
 	    	// this will set the date property of the notification item ==> month day
 	    }
@@ -88,23 +100,20 @@ export class NotifyComponent implements OnInit {
 	}
 
 	removeItem(item) {		
-		var index = this.sampleData.splice(item, 1)		
+		this.sampleData.splice(item, 1)		
 	}
 
   ngOnInit() {
-  	this.date =  new Date(); 
-    setInterval(() => {
-        this.date =  new Date();
-    }, 1000); 
+  	
 
   	this.notifications = ['note1','note1','note1','note1','note1','note1',
   												'note1','note1','note1','note1','note1','note1',
   												'note1','note1','note1'];
   	this.reminders = ['reminder','reminder','reminder'];
-  	var d = new Date();
-		var weekday = new Array(7);
-		weekday[0] =  "Sunday";
-		weekday[1] = "Saturday";
+  // 	var d = new Date();
+		// var weekday = new Array(7);
+		// weekday[0] =  "Sunday";
+		// weekday[1] = "Saturday";
 		
 		// example for setting a time stamp
 		// d.setTime(1332403992588);
