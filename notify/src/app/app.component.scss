@@ -3,9 +3,13 @@
 }
 
 .navbar {
+	background-color: white;
 	margin-bottom: 0;
 }
 
 .navbar a {
 	cursor: pointer;
+	float: right; 
+	padding-top: 5px; 
+	padding-right: 15px;
 }

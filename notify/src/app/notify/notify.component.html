@@ -17,7 +17,18 @@
   		<p>Notifications</p>
   	</div>
   </div>
-  <i class="fa fa-times" aria-hidden="true"></i>
+  <div class="workspace row">
+  	<p href="/">Go to My Workspace ></p>
+  </div>
+  <div class="content">
+  	<div>
+  		<p *ngIf="tempDate == 'Yesterday'">{{tempDate}}</p>
+  		<p *ngIf="hoursLapsed">{{hoursLapsed}} Hours ago</p>
+  		<p *ngIf="minutesLapsed"><{{minutesLapsed}} Minutes ago</p>
+  		<i class="fa fa-times" aria-hidden="true"></i>
+  		<p>Oliver Quiver has assigned the Interview - Book Travel task to you.</p>
+  	</div>
+  </div>
 </div>
 
 
