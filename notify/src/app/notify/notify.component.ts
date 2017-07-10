@@ -13,19 +13,22 @@ export class NotifyComponent implements OnInit {
   			 'type': 'notification', 
   			 'category': 'task', 
   			 'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
-  			 'date': new Date(1499662645409)
+  			 'date': new Date(1499662645409),
+  			 'tempTime': ''
   			},
   			{'id': '1',
   			 'type': 'notification', 
   			 'category': 'task', 
   			 'description': 'Buck Owens has assigned the Mobility - Submit task to you.',
-  			 'date': new Date(1499575088557)
+  			 'date': new Date(1499575088557),
+  			 'tempTime': ''
   			},
   			{'id': '2',
   			 'type': 'notification', 
   			 'category': 'pipeline', 
   			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
-  			 'date': new Date(1500044423851)
+  			 'date': new Date(1500044423851),
+  			 'tempTime': ''
   			}
   	]
 
@@ -61,22 +64,33 @@ export class NotifyComponent implements OnInit {
 	  	for (let i=0; i<this.sampleData.length;i++) {
 	  		
 		    if (this.date.getDate() - 1 == this.sampleData[i].date.getDate()) {    	
-		    	this.tempDate = 'Yesterday';		    	
+		    	this.tempDate = 'Yesterday';		
+		    	this.sampleData[i].tempTime = this.tempDate; 	
 		    	// console.log(this.tempDate);
 		    	// her we will set the date property of the notification item ==> yesterday
 		    }		    
 		    if (this.date.getDate() == this.sampleData[i].date.getDate()) {
 		    	if (this.date.getHours() == this.sampleData[i].date.getHours()
-		    			|| this.date.getHours() - this.sampleData[1].date.getHours() == 1) {
+		    		|| this.date.getHours() - this.sampleData[1].date.getHours() == 1) {
 		    		this.minutesLapsed = 60 - this.sampleData[i].date.getMinutes();
+		    		if (this.minutesLapsed == 1) {
+		    			this.sampleData[i].tempTime = String(this.minutesLapsed)+' Minute ago'
+		    		}
+		    		else if (this.minutesLapsed > 1) {
+		    			this.sampleData[i].tempTime = String(this.minutesLapsed)+' Minutes ago'
+		    		}
 		    		// console.log(timeLapsed);
 		    		// here we will set the date property of the notification item ==> x minutes ago
 		    	}
 		    	if (this.date.getHours() > this.sampleData[i].date.getHours() 
-		    			&& this.date.getHours() - this.sampleData[1].date.getHours() > 1) {
-		    		this.hoursLapsed = this.date.getHours() - this.sampleData[i].date.getHours();
-		    		console.log(this.hoursLapsed)
+		    		&& this.date.getHours() - this.sampleData[1].date.getHours() > 1) {
+		    		this.hoursLapsed = this.date.getHours() - this.sampleData[i].date.getHours();		    		
+		    		this.sampleData[i].tempTime	= String(this.hoursLapsed)+' Hours ago'; 	
+		    		// console.log(this.hoursLapsed)
 		    		// here we will set the date property of the notification item ==> x hours ago
+		    	}
+		    	if (this.date.getHours() - this.sampleData[1].date.getHours() == 1) {
+		    		this.sampleData[i].tempTime	= String(this.hoursLapsed)+' Hour ago';
 		    	}
 		    }
 		  }
