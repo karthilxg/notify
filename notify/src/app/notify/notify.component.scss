@@ -68,6 +68,7 @@
 }
 
 .workspace p {
+	cursor: pointer;
 	font-family: font95207;
 	font-size: 14px;
 	color: #4c9dd6;
@@ -95,6 +96,7 @@
 .content i {
 	float: right;
 	padding-right: 13px;
+	cursor: pointer;
 }
 
 .description {
@@ -111,6 +113,7 @@
 }
 
 .showItem {	
+	cursor: pointer;
 	padding-top: 5px;	
 	font-family: font95207;
 	font-size: 14px;

@@ -32,12 +32,18 @@ Example data set with minimal required properties.
 		'category': 'task',   
 		'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',  
 		'date': new Date(1499662645409),  
-		'tempTime': ''  
+		'tempTime': '',
+		'viewItem': 'View Task'  
 	},  
 	...  
 ]`  
 
+## Usage Notes
+
+If an item is selected (example 'View Task'), the component currently (captures via its' index) fires a console log of the entire item selected. It will also close the notification component as expected. This can be passed to the appropriate component to then work on that item or view that item individually. 
+
 ## Outstanding features
 
-`1. Organize items by most recent`   
-`2. Navigation to item by index`
+
+
+
