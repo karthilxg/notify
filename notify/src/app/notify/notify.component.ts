@@ -31,10 +31,11 @@ export class NotifyComponent implements OnInit {
   			 'tempTime': ''
   			}
   	]
-
+  private months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 	private tempDate = '';
 	private hoursLapsed: any;
 	private minutesLapsed: any;
+	private daysLapsed: any;
 	private date;
 	private yDate;
 	private notifications: any[];
@@ -62,16 +63,10 @@ export class NotifyComponent implements OnInit {
 
 	  	
 	  	for (let i=0; i<this.sampleData.length;i++) {
-	  		
-		    if (this.date.getDate() - 1 == this.sampleData[i].date.getDate()) {    	
-		    	this.tempDate = 'Yesterday';		
-		    	this.sampleData[i].tempTime = this.tempDate; 	
-		    	// console.log(this.tempDate);
-		    	// her we will set the date property of the notification item ==> yesterday
-		    }		    
+	  				        
 		    if (this.date.getDate() == this.sampleData[i].date.getDate()) {
 		    	if (this.date.getHours() == this.sampleData[i].date.getHours()
-		    		|| this.date.getHours() - this.sampleData[1].date.getHours() == 1) {
+		    		|| this.date.getHours() - this.sampleData[i].date.getHours() == 1) {
 		    		this.minutesLapsed = 60 - this.sampleData[i].date.getMinutes();
 		    		if (this.minutesLapsed == 1) {
 		    			this.sampleData[i].tempTime = String(this.minutesLapsed)+' Minute ago'
@@ -93,6 +88,17 @@ export class NotifyComponent implements OnInit {
 		    		this.sampleData[i].tempTime	= String(this.hoursLapsed)+' Hour ago';
 		    	}
 		    }
+		    if (this.date.getDate() != this.sampleData[i].date.getDate()) {
+		    	console.log(this.sampleData[i].date.getMonth())
+		    	console.log(this.months[this.sampleData[i].date.getMonth()])
+		    	this.sampleData[i].tempTime = this.months[this.sampleData[i].date.getMonth()]+' '+String(this.sampleData[i].date.getDay())
+		    }
+		    if (this.date.getDate() - 1 == this.sampleData[i].date.getDate()) {    	
+		    	this.tempDate = 'Yesterday';		
+		    	this.sampleData[i].tempTime = this.tempDate; 	
+		    	// console.log(this.tempDate);
+		    	// her we will set the date property of the notification item ==> yesterday
+		    }		
 		  }
 	}
 
