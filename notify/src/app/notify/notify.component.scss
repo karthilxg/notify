@@ -72,13 +72,48 @@
 	font-size: 14px;
 	color: #4c9dd6;
 	text-align: center;
-	padding-top: 6px;
+	padding-top: 6px;	
 }
 
 .content {
+	margin-top: 10px;
 	padding-left: 11px;
 }
 
-.content p:last-child {
-	border-bottom: 1px solid #d6d6d6;
+.content p {
+	margin-top: 5px;
 }
+
+.content p:first-child {	
+	font-family: font95202;
+	font-size: 14px;
+	color: #333;
+	line-height: 18px;
+	float: left;
+}
+
+.content i {
+	float: right;
+	padding-right: 13px;
+}
+
+.description {
+	font-size: 14px;
+	color: #757575;
+	position: relative;
+	padding-top: 5px;
+	top: 15px;
+	left: -60px;	
+}
+
+.content div {
+	border-bottom: 1px solid #ccc;	
+}
+
+.showItem {	
+	padding-top: 5px;	
+	font-family: font95207;
+	font-size: 14px;
+	color: #4c9dd6;
+}
+

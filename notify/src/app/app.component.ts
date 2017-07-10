@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NotifyComponent} from './notify/notify.component';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+	constructor() { }
+
   notify:false;
+  item = false;
 
   closeComponent() {
   	this.notify = false;
   }
+
+  
 }

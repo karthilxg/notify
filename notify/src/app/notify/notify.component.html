@@ -18,20 +18,11 @@
   <div class="workspace row">
   	<p href="/">Go to My Workspace ></p>
   </div>
-  <div class="content">
-  	<!-- ; let i = index; -->
-  	<div *ngFor="let data of sampleData; let i = index">
-  		
+  <div class="content">	
+  	<div *ngFor="let data of sampleData; let i = index">	
   		<p>{{data.tempTime}}</p>
   		<i class="fa fa-times" aria-hidden="true" (click)="removeItem(i)"></i>
-  		<p>{{data.description}}</p><p (click)="selectItem(i)" style="color: blue;">{{data.viewItem}} ></p>
+  		<p class="description">{{data.description}}</p><p class="showItem" (click)="selectItem(i)">{{data.viewItem}} ></p>
   	</div>
   </div>
 </div>
-
-
-<!-- <p *ngIf="tempDate == 'Yesterday'">{{tempDate}}</p>
-<p *ngIf="hoursLapsed && hoursLapsed > 1">{{hoursLapsed}} Hours ago</p>
-<p *ngIf="hoursLapsed && hoursLapsed == 1">{{hoursLapsed}} Hour ago</p>
-<p *ngIf="minutesLapsed && minutesLapsed == 1">{{minutesLapsed}} Minute ago</p>
-<p *ngIf="minutesLapsed && minutesLapsed > 1">{{minutesLapsed}} Minutes ago</p> -->

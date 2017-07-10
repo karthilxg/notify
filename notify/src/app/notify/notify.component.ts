@@ -70,7 +70,6 @@ export class NotifyComponent implements OnInit {
   }  
 
   updateDateUponLoad() {
-
   	for (let i=0; i<this.sampleData.length;i++) {
   		this.date =  new Date(); 
 	    if (this.date.getDate() == this.sampleData[i].date.getDate()) {
@@ -113,23 +112,15 @@ export class NotifyComponent implements OnInit {
 	  }
 	}
 
-	// private link: any;
-	// setCategory() {
-	// 	for (let i=0;i<this.sampleData.length;i++) {
-	// 		if (this.sampleData[i].category == 'task') {
-	// 			console.log(this.sampleData[i].category)
-	// 			this.link = 'View Task >';
-	// 		}
-	// 		if (this.sampleData[i].category == 'pipeline') {
-	// 			this.link = 'View Pipeline >';
-	// 		}
-	// 	}
-	// }
+	orderList(i) {
+		
+	}
 
 	selectItem(item) {
 		this.selectedItem = this.sampleData[item];
 		console.log(this.selectedItem);
-		this.appComponent.closeComponent();
+		// this.appComponent.retrieveSelectedItem();
+		this.appComponent.closeComponent();		
 	}
 
 	removeItem(item) {		
@@ -156,7 +147,7 @@ export class NotifyComponent implements OnInit {
   	
 		this.getTypeCount();
 		this.updateDateUponLoad();
-		// this.setCategory();
+		
   }
 }
 
