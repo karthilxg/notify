@@ -1,54 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent }			 from '../app.component';
+import { NotifyService }		 from '../services/notify.service';
+import { Item }							 from '../models/item';
 
 @Component({
   selector: 'app-notify',
   templateUrl: './notify.component.html',
-  styleUrls: ['./notify.component.scss']
+  styleUrls: ['./notify.component.scss'],
+  providers: [NotifyService]
 })
 export class NotifyComponent implements OnInit {
 	
 	sampleData = [
-  			{'id': '0',
-  			 'type': 'assigned task', 
-  			 'category': 'task', 
-  			 'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
-  			 'date': new Date(1499662645409),
-  			 'tempTime': '',
-  			 'viewItem': 'View Task'
-  			},
-  			{'id': '1',
-  			 'type': 'assigned task', 
-  			 'category': 'task', 
-  			 'description': 'Buck Owens has assigned the Mobility - Submit task to you.',
-  			 'date': new Date(1499575088557),
-  			 'tempTime': '',
-  			 'viewItem': 'View Task'
-  			},
-  			{'id': '2',
-  			 'type': 'notification', 
-  			 'category': 'pipeline', 
-  			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
-  			 'date': new Date(1500044423851),
-  			 'tempTime': '',
-  			 'viewItem': 'View Pipeline'
-  			},
-  			{'id': '3',
-  			 'type': 'reminder', 
-  			 'category': 'someNote', 
-  			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
-  			 'date': new Date(1499701681111),
-  			 'tempTime': '',
-  			 'viewItem': 'View Note'
-  			},
-  			{'id': '4',
-  			 'type': 'assigned task', 
-  			 'category': 'task', 
-  			 'description': 'testing counter.',
-  			 'date': new Date(1499701680000),
-  			 'tempTime': '',
-  			 'viewItem': 'View Task'
-  			}
+  			// {'id': '0',
+  			//  'type': 'assigned task', 
+  			//  'category': 'task', 
+  			//  'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
+  			//  'date': new Date(1499662645409),
+  			//  'tempTime': '',
+  			//  'viewItem': 'View Task'
+  			// },
+  			// {'id': '1',
+  			//  'type': 'assigned task', 
+  			//  'category': 'task', 
+  			//  'description': 'Buck Owens has assigned the Mobility - Submit task to you.',
+  			//  'date': new Date(1499575088557),
+  			//  'tempTime': '',
+  			//  'viewItem': 'View Task'
+  			// },
+  			// {'id': '2',
+  			//  'type': 'notification', 
+  			//  'category': 'pipeline', 
+  			//  'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
+  			//  'date': new Date(1500044423851),
+  			//  'tempTime': '',
+  			//  'viewItem': 'View Pipeline'
+  			// },
+  			// {'id': '4',
+  			//  'type': 'assigned task', 
+  			//  'category': 'task', 
+  			//  'description': 'testing counter.',
+  			//  'date': new Date(1499701680000),
+  			//  'tempTime': '',
+  			//  'viewItem': 'View Task'
+  			// },
+  			// {'id': '3',
+  			//  'type': 'reminder', 
+  			//  'category': 'someNote', 
+  			//  'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
+  			//  'date': new Date(1499701681111),
+  			//  'tempTime': '',
+  			//  'viewItem': 'View Note'
+  			// }  			
   	]
   private months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 	private tempDate = '';
@@ -61,18 +64,20 @@ export class NotifyComponent implements OnInit {
 	private assignedTask: any;
 	private selectedItem: any;
 
-  constructor(private appComponent: AppComponent) { 
+  constructor(private appComponent: AppComponent, 
+  						private notifyService: NotifyService
+  						) { 
   	this.date =  new Date(); 
     setInterval(() => {
         this.date =  new Date();
     }, 30); 
-    console.log(this.date.getTime())
+    // console.log(this.date.getTime())
   }  
 
   updateDateUponLoad() {
 
   	for (let i=0; i<this.sampleData.length;i++) {
-  		this.date =  new Date(); 
+  		
 	    if (this.date.getDate() == this.sampleData[i].date.getDate()) {
 	    	if (this.date.getHours() == this.sampleData[i].date.getHours()
 	    		|| this.date.getHours() - this.sampleData[i].date.getHours() == 1) {
@@ -113,11 +118,6 @@ export class NotifyComponent implements OnInit {
 	  }
 	}
 
-	orderList(i) {
-
-	}
-
-
 	selectItem(item) {
 		this.selectedItem = this.sampleData[item];
 		console.log(this.selectedItem);
@@ -145,9 +145,22 @@ export class NotifyComponent implements OnInit {
 		}		
 	}
 
-	tempData: any;
+	items: Item[];
+	getItems(): void {
+    this.notifyService.getItems().then(items => {
+    	this.items = items; 
+    	// console.log(this.items)
+    	this.sampleData = this.items;
+    	console.log(this.sampleData)
+    });    
+  }
 
+	tempData: any;
+	d: any;
   ngOnInit() {
+
+  	this.getItems();
+  	
   			
 		var sortBy = (function () {
 
@@ -185,7 +198,10 @@ export class NotifyComponent implements OnInit {
 		this.updateDateUponLoad();
 
 		this.tempData = sortBy(this.sampleData, { prop: "date" });
-		console.log(this.tempData)
+		// console.log(this.tempData)
+
+		this.d = new Date();
+		// console.log (this.d.getDate(1499575088557))
   }
 }
 

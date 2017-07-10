@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import {NotifyComponent} from './notify/notify.component';
+import { Http }			from '@angular/http';
+
+// import {NotifyComponent} from './notify/notify.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  // providers: [NotifyService]
+
 })
 export class AppComponent {
 

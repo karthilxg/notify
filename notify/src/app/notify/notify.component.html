@@ -19,7 +19,7 @@
   	<p href="/">Go to My Workspace ></p>
   </div>
   <div class="content">	
-  	<div *ngFor="let data of tempData; let i = index">	
+  	<div *ngFor="let data of items; let i = index">	
   		<p>{{data.tempTime}}</p>
   		<i class="fa fa-times" aria-hidden="true" (click)="removeItem(i)"></i>
   		<p class="description">{{data.description}}</p><p class="showItem" (click)="selectItem(i)">{{data.viewItem}} ></p>
