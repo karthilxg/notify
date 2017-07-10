@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
+## System Requirements
+
+This project requires:
+
+`node version: 6.* or higher` for installation and support please see [nodejs](https://nodejs.org/en/)
+`ng version: 1.2` for installation and support please see [@angular-cli](https://cli.angular.io/)
+
+## Simple Install
+
+Clone the repo into desired directory. Run `npm install`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -29,5 +40,4 @@ Example data set with minimal required properties.
 ## Outstanding features
 
 `1. Organize items by most recent` 
-`2. Item count responsive to items being removed from list`
-`3. Navigation to item by index`
+`2. Navigation to item by index`

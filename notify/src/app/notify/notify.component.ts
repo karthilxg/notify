@@ -49,14 +49,10 @@ export class NotifyComponent implements OnInit {
 	private hoursLapsed: any;
 	private minutesLapsed: any;
 	private daysLapsed: any;
-	private date;
-	private yDate;
-	private notifications: any[];
-	private reminders: any[];
-	private assignedTasks: any[];
-	reminder: any;
-	notification: any;
-	assignedTask: any;
+	private date;	
+	private reminder: any;
+	private notification: any;
+	private assignedTask: any;
 
   constructor() { 
   	this.date =  new Date(); 
@@ -132,22 +128,6 @@ export class NotifyComponent implements OnInit {
 
   ngOnInit() {
   	
-
-  	this.notifications = ['note1','note1','note1','note1','note1','note1',
-  												'note1','note1','note1','note1','note1','note1',
-  												'note1','note1','note1'];
-  	this.reminders = ['reminder','reminder','reminder'];
-  // 	var d = new Date();
-		// var weekday = new Array(7);
-		// weekday[0] =  "Sunday";
-		// weekday[1] = "Saturday";
-		
-		// example for setting a time stamp
-		// d.setTime(1332403992588);
-		// this.sampleData[1].date = d;
-  // 	console.log(this.sampleData[1].date.getDate())
-
-		// var n = weekday[d.getDay()];
 		this.getTypeCount();
 
 		this.updateDateUponLoad();
