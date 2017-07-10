@@ -21,12 +21,16 @@
   	<p href="/">Go to My Workspace ></p>
   </div>
   <div class="content">
-  	<div>
+  	<!-- ; let i = index; -->
+  	<div *ngFor="let data of sampleData; let i = index">
+  		
   		<p *ngIf="tempDate == 'Yesterday'">{{tempDate}}</p>
-  		<p *ngIf="hoursLapsed">{{hoursLapsed}} Hours ago</p>
-  		<p *ngIf="minutesLapsed"><{{minutesLapsed}} Minutes ago</p>
+  		<p *ngIf="hoursLapsed && hoursLapsed > 1">{{hoursLapsed}} Hours ago</p>
+  		<p *ngIf="hoursLapsed && hoursLapsed == 1">{{hoursLapsed}} Hour ago</p>
+  		<p *ngIf="minutesLapsed && minutesLapsed == 1">{{minutesLapsed}} Minute ago</p>
+  		<p *ngIf="minutesLapsed && minutesLapsed > 1">{{minutesLapsed}} Minutes ago</p>
   		<i class="fa fa-times" aria-hidden="true"></i>
-  		<p>Oliver Quiver has assigned the Interview - Book Travel task to you.</p>
+  		<p>{{data.description}}</p>
   	</div>
   </div>
 </div>
