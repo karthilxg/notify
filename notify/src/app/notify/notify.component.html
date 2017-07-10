@@ -5,11 +5,9 @@
   </div>
   <div class="items">
   	<div class="itemCount row">  		
-  		<p>56</p>
-  		<p *ngIf="reminders.length < 10">0{{reminders.length}}</p>
-  		<p *ngIf="reminders.length > 10">{{reminders.length}}</p>
-  		<p *ngIf="notifications.length < 10">0{{notifications.length}}</p>
-  		<p *ngIf="notifications.length > 10">{{notifications.length}}</p>
+  		<p>{{assignedTask}}</p>
+  		<p>{{reminder}}</p>
+  		<p>{{notification}}</p>  		
   	</div>
   	<div class="itemTitle row">
   		<p>Assigned Tasks</p>

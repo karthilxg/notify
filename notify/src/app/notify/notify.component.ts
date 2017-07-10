@@ -29,11 +29,18 @@ export class NotifyComponent implements OnInit {
   			 'date': new Date(1500044423851),
   			 'tempTime': ''
   			},
-  			{'id': '2',
+  			{'id': '3',
   			 'type': 'reminder', 
-  			 'category': '', 
+  			 'category': 'someNote', 
   			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
-  			 'date': new Date(1499701688097),
+  			 'date': new Date(1499701681111),
+  			 'tempTime': ''
+  			},
+  			{'id': '4',
+  			 'type': 'assigned task', 
+  			 'category': 'task', 
+  			 'description': 'testing counter.',
+  			 'date': new Date(1499701680000),
   			 'tempTime': ''
   			}
   	]
@@ -47,6 +54,9 @@ export class NotifyComponent implements OnInit {
 	private notifications: any[];
 	private reminders: any[];
 	private assignedTasks: any[];
+	reminder: any;
+	notification: any;
+	assignedTask: any;
 
   constructor() { 
   	this.date =  new Date(); 
@@ -74,13 +84,13 @@ export class NotifyComponent implements OnInit {
 	    		// here we will set the date property of the notification item ==> x minutes ago
 	    	}
 	    	if (this.date.getHours() > this.sampleData[i].date.getHours() 
-	    		&& this.date.getHours() - this.sampleData[1].date.getHours() > 1) {
+	    		&& this.date.getHours() - this.sampleData[i].date.getHours() > 1) {
 	    		this.hoursLapsed = this.date.getHours() - this.sampleData[i].date.getHours();		    		
 	    		this.sampleData[i].tempTime	= String(this.hoursLapsed)+' Hours ago'; 	
 	    		// console.log(this.hoursLapsed)
 	    		// here we will set the date property of the notification item ==> x hours ago
 	    	}
-	    	if (this.date.getHours() - this.sampleData[1].date.getHours() == 1) {
+	    	if (this.date.getHours() - this.sampleData[i].date.getHours() == 1) {
 	    		this.sampleData[i].tempTime	= String(this.hoursLapsed)+' Hour ago';
 	    	}
 	    }
@@ -89,6 +99,7 @@ export class NotifyComponent implements OnInit {
 	    	// console.log(this.months[this.sampleData[i].date.getMonth()])
 	    	this.sampleData[i].tempTime = this.months[this.sampleData[i].date.getMonth()]+' '+String(this.sampleData[i].date.getDay())
 	    	// this will set the date property of the notification item ==> month day
+	    	// console.log(this.sampleData[i].tempTime)
 	    }
 	    if (this.date.getDate() - 1 == this.sampleData[i].date.getDate()) {    	
 	    	this.tempDate = 'Yesterday';		
@@ -100,7 +111,23 @@ export class NotifyComponent implements OnInit {
 	}
 
 	removeItem(item) {		
-		this.sampleData.splice(item, 1)		
+		this.sampleData.splice(item, 1);
+		this.getTypeCount();	
+	}
+
+	getTypeCount() {
+		this.assignedTask = this.sampleData.filter(function(a){return (a.type=='assigned task')}).length;
+		if (this.assignedTask < 10) {
+			this.assignedTask = '0'+String(this.assignedTask)
+		}
+		this.reminder = this.sampleData.filter(function(a){return (a.type=='reminder')}).length;
+		if (this.reminder < 10) {
+			this.reminder = '0'+String(this.reminder)
+		}
+		this.notification = this.sampleData.filter(function(a){return (a.type=='notification')}).length;
+		if (this.notification < 10) {
+			this.notification = '0'+String(this.notification)
+		}		
 	}
 
   ngOnInit() {
@@ -121,8 +148,23 @@ export class NotifyComponent implements OnInit {
   // 	console.log(this.sampleData[1].date.getDate())
 
 		// var n = weekday[d.getDay()];
+		this.getTypeCount();
+
 		this.updateDateUponLoad();
   }
-
-
 }
+
+
+
+// getItems() {
+//     return this.http.get('../app/models/items.json')
+//         .toPromise()
+//         .then(res => <Task[]> res.json().data)
+//         .then(data => { return data; });
+
+// }
+
+
+
+
+
