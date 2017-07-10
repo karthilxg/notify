@@ -9,4 +9,7 @@ export class AppComponent {
 
   notify:false;
 
+  closeComponent() {
+  	this.notify = false;
+  }
 }

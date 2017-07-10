@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent }			 from '../app.component';
 
 @Component({
   selector: 'app-notify',
@@ -13,35 +14,40 @@ export class NotifyComponent implements OnInit {
   			 'category': 'task', 
   			 'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
   			 'date': new Date(1499662645409),
-  			 'tempTime': ''
+  			 'tempTime': '',
+  			 'viewItem': 'View Task'
   			},
   			{'id': '1',
   			 'type': 'assigned task', 
   			 'category': 'task', 
   			 'description': 'Buck Owens has assigned the Mobility - Submit task to you.',
   			 'date': new Date(1499575088557),
-  			 'tempTime': ''
+  			 'tempTime': '',
+  			 'viewItem': 'View Task'
   			},
   			{'id': '2',
   			 'type': 'notification', 
   			 'category': 'pipeline', 
   			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
   			 'date': new Date(1500044423851),
-  			 'tempTime': ''
+  			 'tempTime': '',
+  			 'viewItem': 'View Pipeline'
   			},
   			{'id': '3',
   			 'type': 'reminder', 
   			 'category': 'someNote', 
   			 'description': 'The posting for Pipeline 1754689 - Graphics Designers has been approved.',
   			 'date': new Date(1499701681111),
-  			 'tempTime': ''
+  			 'tempTime': '',
+  			 'viewItem': 'View Note'
   			},
   			{'id': '4',
   			 'type': 'assigned task', 
   			 'category': 'task', 
   			 'description': 'testing counter.',
   			 'date': new Date(1499701680000),
-  			 'tempTime': ''
+  			 'tempTime': '',
+  			 'viewItem': 'View Task'
   			}
   	]
   private months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -53,8 +59,9 @@ export class NotifyComponent implements OnInit {
 	private reminder: any;
 	private notification: any;
 	private assignedTask: any;
+	private selectedItem: any;
 
-  constructor() { 
+  constructor(private appComponent: AppComponent) { 
   	this.date =  new Date(); 
     setInterval(() => {
         this.date =  new Date();
@@ -106,6 +113,25 @@ export class NotifyComponent implements OnInit {
 	  }
 	}
 
+	// private link: any;
+	// setCategory() {
+	// 	for (let i=0;i<this.sampleData.length;i++) {
+	// 		if (this.sampleData[i].category == 'task') {
+	// 			console.log(this.sampleData[i].category)
+	// 			this.link = 'View Task >';
+	// 		}
+	// 		if (this.sampleData[i].category == 'pipeline') {
+	// 			this.link = 'View Pipeline >';
+	// 		}
+	// 	}
+	// }
+
+	selectItem(item) {
+		this.selectedItem = this.sampleData[item];
+		console.log(this.selectedItem);
+		this.appComponent.closeComponent();
+	}
+
 	removeItem(item) {		
 		this.sampleData.splice(item, 1);
 		this.getTypeCount();	
@@ -129,20 +155,10 @@ export class NotifyComponent implements OnInit {
   ngOnInit() {
   	
 		this.getTypeCount();
-
 		this.updateDateUponLoad();
+		// this.setCategory();
   }
 }
-
-
-
-// getItems() {
-//     return this.http.get('../app/models/items.json')
-//         .toPromise()
-//         .then(res => <Task[]> res.json().data)
-//         .then(data => { return data; });
-
-// }
 
 
 

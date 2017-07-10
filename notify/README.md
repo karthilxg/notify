@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project requires:
 
-`node version: 6.* or higher` for installation and support please see [nodejs](https://nodejs.org/en/)
+`node version: 6.* or higher` for installation and support please see [nodejs](https://nodejs.org/en/)   
 `ng version: 1.2` for installation and support please see [@angular-cli](https://cli.angular.io/)
 
 ## Simple Install
@@ -27,17 +27,17 @@ Example data set with minimal required properties.
 
 `[
 	{
-		'id': '0',
-		'type': 'assigned task', 
-		'category': 'task', 
-		'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',
-		'date': new Date(1499662645409),
-		'tempTime': ''
-	},
-	...
-]`
+		'id': '0',  
+		'type': 'assigned task',   
+		'category': 'task',   
+		'description': 'Oliver Quiver gas assigned the Interview - Book Travel task to you.',  
+		'date': new Date(1499662645409),  
+		'tempTime': ''  
+	},  
+	...  
+]`  
 
 ## Outstanding features
 
-`1. Organize items by most recent` 
+`1. Organize items by most recent`   
 `2. Navigation to item by index`

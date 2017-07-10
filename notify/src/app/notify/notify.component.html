@@ -24,7 +24,7 @@
   		
   		<p>{{data.tempTime}}</p>
   		<i class="fa fa-times" aria-hidden="true" (click)="removeItem(i)"></i>
-  		<p>{{data.description}}</p>
+  		<p>{{data.description}}</p><p (click)="selectItem(i)" style="color: blue;">{{data.viewItem}} ></p>
   	</div>
   </div>
 </div>
