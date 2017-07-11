@@ -11,7 +11,7 @@ This project requires:
 
 ## Simple Install
 
-Clone the repo into desired directory. Run `npm install`.
+Clone the repo into desired directory. Run `cd notify`. Run `npm install`.
 
 ## Development server
 
