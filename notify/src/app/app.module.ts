@@ -4,16 +4,21 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NotifyComponent } from './notify/notify.component';
-import { NotifyService }	from './services/notify.service'
+import { NotifyService }	from './services/notify.service';
+import { StyleComponent } from './style/style.component';
+
+import {routing} from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotifyComponent
+    NotifyComponent,
+    StyleComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [NotifyService],
   bootstrap: [AppComponent]
